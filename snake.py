@@ -79,7 +79,8 @@ class SnakeGame:
         self.hi_lbl = tk.Label(self.hud, text="Best: 0", fg="#FFD700", bg=t["hud_bg"], font=font_bold)
         self.hi_lbl.pack(side=tk.LEFT, padx=4)
 
-        self.lives_lbl = tk.Label(self.hud, text="♥ ♥ ♥", fg="#FF4444", bg=t["hud_bg"], font=font_bold)
+        # Line 82 replaced here:
+        self.lives_lbl = tk.Label(self.hud, text="* * *", fg="#FF4444", bg=t["hud_bg"], font=font_bold)
         self.lives_lbl.pack(side=tk.RIGHT, padx=12, pady=4)
 
         self.status_lbl = tk.Label(self.hud, text="", fg=t["hud_fg"], bg=t["hud_bg"], font=font_sm)
@@ -102,8 +103,11 @@ class SnakeGame:
         t = THEMES[self.theme_idx]
         self.score_lbl.config(text=f"Score: {self.score}")
         self.hi_lbl.config(text=f"Best: {self.high_score}")
-        hearts = ("♥ " * self.lives + "♡ " * (MAX_LIVES - self.lives)).strip()
+        
+        # Line 105 replaced here:
+        hearts = ("* " * self.lives + ". " * (MAX_LIVES - self.lives)).strip()
         self.lives_lbl.config(text=hearts)
+        
         parts = []
         if self.wrap_mode:
             parts.append("WRAP")
