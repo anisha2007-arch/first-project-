@@ -79,7 +79,8 @@ class SnakeGame:
         self.hi_lbl = tk.Label(self.hud, text="Best: 0", fg="#FFD700", bg=t["hud_bg"], font=font_bold)
         self.hi_lbl.pack(side=tk.LEFT, padx=4)
 
-        # Line 82 replaced here:
+
+        
         self.lives_lbl = tk.Label(self.hud, text="* * *", fg="#FF4444", bg=t["hud_bg"], font=font_bold)
         self.lives_lbl.pack(side=tk.RIGHT, padx=12, pady=4)
 
@@ -104,7 +105,7 @@ class SnakeGame:
         self.score_lbl.config(text=f"Score: {self.score}")
         self.hi_lbl.config(text=f"Best: {self.high_score}")
         
-        # Line 105 replaced here:
+        
         hearts = ("* " * self.lives + ". " * (MAX_LIVES - self.lives)).strip()
         self.lives_lbl.config(text=hearts)
         
